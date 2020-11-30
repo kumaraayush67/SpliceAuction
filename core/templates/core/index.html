@@ -1,0 +1,371 @@
+{% extends 'core/base.html' %}
+
+{% block 'body' %}
+{% load static %}
+
+<!-- Login -->
+<div class="container login-form">
+<div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <div class="modal-title text-center">Register Form </div>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row login-top">
+            <div class="col">
+        <form id="regForm" method="POST" action="{% url 'create_customer' %}">
+          {% csrf_token %}
+          <input hidden type="text" class="form-control" id="customer_type" name="customer_type" oninput=" this.className = ''" placeholder="First Name" required="">
+          <div class="tab regis-form">
+            <div class="row form-group">
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="user.first_name" oninput="this.className = ''" placeholder="First Name" required="">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="user.last_name" oninput="this.className = ''" placeholder="Last Name">
+              </div>
+            </div>
+
+            <div class="row form-group pt-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="user.email" oninput="this.className = ''" placeholder="Email Address">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="user.confirm_email" oninput="this.className = ''" placeholder="Comfirm Email Address">
+              </div>
+            </div>
+
+            <div class="row form-group pt-3">
+              <div class="col-md-6">
+                <input type="password" class="form-control" oninput="this.className = ''" name="user.password" placeholder="Password">
+              </div>
+              <div class="col-md-6">
+                <input type="password" class="form-control" oninput="this.className = ''" name="user.confirm_password" placeholder="Confirm Password">
+              </div>
+            </div>
+          </div>
+          <div class="tab regis-form">
+            <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="company_name" oninput="this.className = ''" placeholder="Company Name">
+                </div>
+                
+              </div>
+
+              <div class="row form-group pt-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="mobile" oninput="this.className = ''"placeholder="Mobile No" required="">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="telephone" oninput="this.className = ''" placeholder="Telephone">
+                </div>
+              </div>
+
+              <div class="row form-group pt-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="address_line_one" oninput="this.className = ''" placeholder="Address Lane 1">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="address_line_two"  oninput="this.className = ''" placeholder="Address Lane 2">
+                </div>
+              </div>
+
+              <div class="row form-group pt-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="city" oninput="this.className = ''" placeholder="City">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="postal_zip" oninput="this.className = ''" placeholder="Postal Zip">
+                </div>
+              </div>
+
+              <div class="row form-group pt-3">
+                <div class="col-md-6">
+                  <select class="form-control" name="country">
+                    <option value="">---Country----</option>
+                    <option value="America">America</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Australia">Australia</option>
+                    <option value="France">France</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" oninput="this.className = ''" name="state" placeholder="State">
+                </div>
+              </div>
+
+              
+            </div>
+ 
+            <div style="overflow:auto;" class="pt-5">
+              <div class="reg-btn">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+              </div>
+            </div>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+        </form>
+           </div>
+          </div>
+
+
+        
+
+        </div>
+
+
+           
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- Login end -->
+
+
+<section class="tophead">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="social">
+          <ul>
+            <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href=""></a><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+            <li><a href=""></a><i class="fa fa-youtube-play" aria-hidden="true"></i></li>             
+            <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-2 offset-4">
+        <h5>Call us: <span>570-694-4002</span></h5>
+      </div>
+      <div class="col-md-1" data-toggle="modal" data-target="#myModal1"><img src="{% static 'img/msg-alert.png' %}" width="25px"></div>
+      <div class="col-md-1" onclick="addCustomerType('VENDOR')" data-toggle="modal" data-target="#myModal2"><button>Vendor</button></div>
+      <div class="col-md-1" onclick="addCustomerType('BIDDER')" data-toggle="modal" data-target="#myModal2"><button>Bidder</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="menubar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}"></a> </div>
+      <div class="col-md-7 offset-1 ">
+       <!--  <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Auctons</a></li>
+          <li><a href="">Location</a></li>
+          <li><a href="">Guide</a></li>
+          <li><a href="">Contact</a></li>
+        </ul> -->
+
+
+<div id="main">
+    <nav>
+      <div class="nav-xbootstrap">
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="javascript:void(0)">Auctions<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+            <ul class="dropdown">
+              <li><a href="">General Auctions</a></li>
+              <li><a href="">Electronic</a></li>
+              <li><a href="">Furniture</a></li>
+              <li><a href="">Automobile</a></li>
+              <li><a href="">General</a></li>
+              <li><a href="">Designer Dress</a></li>
+                <li><a href="">Property</a></li>
+
+
+            </ul>
+          </li>
+          <li><a href="javascript:void(0)" >Locations<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+            <ul class="dropdown">
+              <li><a href="#">Islington</a></li>
+              <li><a href="#">Lambeth</a></li>
+              <li><a href="#">Hounslow</a></li>
+                <li><a href="#">Greenwich</a></li>
+               <li><a href="#">Hackney</a></li> 
+            </ul>
+          </li>
+         <li><a href="#">FAQ</a></li>
+          <li><a href="{% url 'contact' %}">Contacts</a></li>
+         <!--  <li><a href="https://xbootstrap.com">Premium Themes</a></li>
+          <li><a href="https://xbootstrap.com">Business</a></li> -->
+        </ul>
+      </div>
+      <div class="nav-bg-xbootstrap">
+        <div class="navbar-xbootstrap"> <span></span> <span></span> <span></span> </div>
+        <a href="https://xbootstrap.com" class="title-mobile">xBOOTSTRAP.COM</a>
+      </div>
+    </nav>
+   
+
+</div>
+      </div>
+      <div class="col-md-2">
+        <div class="row form-group">
+          <div class="col">
+           <!--  <input type="" class="form-control" name="">
+            <button><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+          </div> -->
+        </div>
+      </div>
+        
+     
+    </div>
+  </div>
+</section>
+<section class="hero-banner">
+<!--   <div class="shape-top"><img src="img/shape-top.png"></div> -->
+  <div class=" ct-header ct-header--slider ct-slick-custom-dots" id="home">
+  <div class="ct-slick-homepage" data-arrows="true" data-autoplay="true">
+    
+    <div class="bgcolor ct-header tablex item" data-background="{% static 'img/auction-ban-1.jpg' %}">
+      <div class="ct-u-display-tablex">
+        <div class="inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 slider-inner m-auto">
+                <h1 class="big animated text-center">Welcome to <span>AUCTION SITE </span> <span>{{customer_type}} {{name}}</span></h1>
+                 <h4 class="animated text-center">Find your dream products</h4> 
+                 <br><br><br><br>
+             <!--    <p class="animated"> <span>Rapid, high throughput isolation of viral RNA and viral DNA from serum, swabs, plasma, saliva, and other body fluids</span></p> -->
+                <!-- <div class="ban-btn pt-3">
+                <a class="btn btn-lg animated" href="">Read More</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="bgcolor ct-header tablex item" data-background="{% static 'img/auction-ban-2.jpg' %}">
+      <div class="ct-u-display-tablex">
+        <div class="inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 slider-inner m-auto">
+                <h1 class="big animated text-center">Amazing Products Waiting for you</h1>
+                 <!-- <h4 class="animated text-center">Find your dream products</h4>  -->
+                 <br><br><br><br>
+             <!--    <p class="animated"> <span>Rapid, high throughput isolation of viral RNA and viral DNA from serum, swabs, plasma, saliva, and other body fluids</span></p> -->
+                <!-- <div class="ban-btn pt-3">
+                <a class="btn btn-lg animated" href="">Read More</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--   <div class="bgcolor ct-header tablex item" data-background="img/ban3.jpg">
+      <div class="ct-u-display-tablex">
+        <div class="inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-lg-8 slider-inner">
+                <h1 class="big animated">VIRAL DNA/RNA EXTRACTION</h1>
+                 <h4 class="animated"><strong>Mag-Bind® Viral DNA/RNA 96 Kit</strong></h4>
+                <p class="animated"> <span>Rapid, high throughput isolation of viral RNA and viral DNA from serum, swabs, plasma, saliva, and other body fluids</span></p>
+                <div class="ban-btn pt-3">
+                <a class="btn btn-lg animated" href="">Read More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+</section>
+
+
+
+<section class="about">
+  <div class="container-fluid">
+
+    <div class="row owlslider">
+      <div class="col-md-10 m-auto owlbg">
+        <div id="carousel-1" class="loop owl-carousel owl-theme">
+
+          <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-1.png' %}">
+              <h4>Electronics</h4>
+            </div>
+          </div>
+           <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-2.png'%}">
+              <h4>Furniture</h4>
+            </div>
+          </div>
+
+           <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-3.png' %}">
+              <h4>Automobiles</h4>
+            </div>
+          </div>
+
+           <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-5.png' %}">
+              <h4>Arts</h4>
+            </div>
+          </div>
+
+           <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-7.png' %}">
+              <h4>Property</h4>
+            </div>
+          </div>
+             <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-4.png' %}">
+              <h4>Instrument</h4>
+            </div>
+          </div>
+            <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-8.png' %}">
+              <h4>General</h4>
+            </div>
+          </div>
+           <div class="item">
+            <div class="prod-in">
+              <img src="{% static 'img/prod-icon-6.png' %}">
+              <h4>Cloths</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+</section>
+<script>
+  function addCustomerType(value){
+    document.getElementById("customer_type").value = value;
+  }
+</script>
+{% endblock %}

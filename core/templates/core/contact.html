@@ -1,0 +1,170 @@
+{% extends 'core/base.html' %}
+
+{% block 'body' %}
+{% load static %}
+
+<section class="tophead">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="social">
+          <ul>
+            <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href=""></a><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+            <li><a href=""></a><i class="fa fa-youtube-play" aria-hidden="true"></i></li>             
+            <li><a href=""><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-2 offset-4">
+        <h5>Call us: <span>570-694-4002</span></h5>
+      </div>
+      <div class="col-md-1 " data-toggle="modal" data-target="#myModal1"><img src="{% static 'img/msg-alert.png'%}" width="25px"></div>
+      <div class="col-md-2" data-toggle="modal" data-target="#myModal2"><h6>Login/Signup &nbsp; <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+</h6></div>
+    </div>
+  </div>
+</section>
+
+<section class="menubar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}"></a> </div>
+      <div class="col-md-7 offset-1 ">
+      
+
+<div id="main">
+    <nav>
+      <div class="nav-xbootstrap">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="javascript:void(0)">Auctons<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+            <ul class="dropdown">
+              <li><a href="">Electronic</a></li>
+              <li><a href="">Furniture</a></li>
+              <li><a href="">Automobile</a></li>
+              <li><a href="">General</a></li>
+              <li><a href="">Designer Dress</a></li>
+                <li><a href="">Property</a></li>
+
+
+            </ul>
+          </li>
+          <li><a href="javascript:void(0)" >Locations<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+            <ul class="dropdown">
+              <li><a href="#">Islington</a></li>
+              <li><a href="#">Lambeth</a></li>
+              <li><a href="#">Hounslow</a></li>
+                <li><a href="#">Greenwich</a></li>
+               <li><a href="#">Hackney</a></li> 
+            </ul>
+          </li>
+         <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contacts</a></li>
+         <!--  <li><a href="https://xbootstrap.com">Premium Themes</a></li>
+          <li><a href="https://xbootstrap.com">Business</a></li> -->
+        </ul>
+      </div>
+     <!--  <div class="nav-bg-xbootstrap">
+        <div class="navbar-xbootstrap"> <span></span> <span></span> <span></span> </div>
+        <a href="https://xbootstrap.com" class="title-mobile">xBOOTSTRAP.COM</a>
+      </div> -->
+    </nav>
+   
+
+</div>
+      </div>
+      <div class="col-md-2">
+        <div class="row form-group">
+          <div class="col">
+            <input type="" class="form-control" name="">
+            <button><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+          </div>
+        </div>
+      </div>
+        
+     
+    </div>
+  </div>
+</section>
+
+<section class="contact-ban">
+  <div class="container">
+    <div class="row">
+      <div class="col"><h1>Contact Us</h1></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact inn-pg-bg">
+<div class="container">
+
+</div>
+</section>
+<section class="contact-in pb-5 mb-5">
+<div class="container">
+<div class="row conform">
+<div class="col-md-6 p-5 conwhite">
+<form>
+
+<h2>Get in Touch</h2>
+<div class="row form-group">
+<div class="col-md-12 pt-3">
+<input type="text" name="name" placeholder="Name" id="post-name" class="form-control" required>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-12 pt-3">
+<input type="email" name="email" placeholder="Email" id="post-contactemail" class="form-control" required>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-12 pt-3">
+<input type="number" name="mob" placeholder="Mobile No" id="post-mob" class="form-control" required>
+</div>
+</div>
+<div class="row form-group">
+<div class="col-md-12 pt-3">
+<input type="text" name="message" placeholder="Message" id="post-msg" class="form-control" required>
+</div>
+</div>
+
+
+
+<div class="row form-group  pt-5">
+<div class="col-md-12">
+<input type="submit" class="btnSubmit" value="Submit">
+</div>
+</div>
+</form>
+</div>
+<div class="col-md-6 concolor p-5">
+<h3>Contact Information</h3>
+<p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> xzy, South Wales, England</p>
+<p><span><i class="fa fa-envelope" aria-hidden="true"></i></span>xyz@gmail.com</p>
+<p><span><i class="fa fa-skype" aria-hidden="true"></i></span>live:xyz</p>
+<p><span><i class="fa fa-mobile" aria-hidden="true"></i></span>UK : +44 123 989 1212 </p>
+<div class="social conct">
+<ul>
+<li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+<li><a href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+<li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+<li><a href="#" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+<li><a href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+
+</section>
+
+
+{% endblock %}
